@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: only light;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-slate-950 text-slate-50 antialiased;
+}
+
+.glass-panel {
+  @apply bg-white/10 backdrop-blur-xl border border-white/10 shadow-glow;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-display font-semibold text-slate-100;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide bg-primary-500/10 text-primary-200 border border-primary-400/30;
+}
