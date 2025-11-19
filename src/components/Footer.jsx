@@ -1,14 +1,5 @@
 import { Link } from 'react-router-dom'
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
-  Mail,
-  Phone,
-  MapPin,
-  ArrowUpRight,
-} from 'lucide-react'
+import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const socials = [
@@ -20,43 +11,29 @@ const socials = [
 
 const quickLinks = [
   { label: 'Admissions', to: '/auth?mode=register' },
-  { label: 'Find a Course', to: '/courses' },
-  { label: 'Learner Dashboard', to: '/dashboard' },
-  { label: 'Support Center', to: '/auth?mode=login' },
+  { label: 'Courses', to: '/courses' },
+  { label: 'Dashboard', to: '/dashboard' },
+  { label: 'Support', to: '/auth?mode=login' },
 ]
 
 const Footer = () => {
   return (
-    <footer className="relative mt-20 border-t border-white/10">
-      <div className="absolute inset-x-0 top-0 mx-auto h-px w-2/3 bg-gradient-to-r from-transparent via-primary-500/60 to-transparent" />
+    <footer className="mt-24 border-t border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr]">
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500/20 text-primary-200">
-                <ArrowUpRight className="h-6 w-6" />
-              </span>
-              <div>
-                <p className="text-lg font-semibold text-primary-100">
-                  J K Shah Classes Online
-                </p>
-                <p className="text-sm text-slate-400">
-                  Commerce success, now on-demand.
-                </p>
-              </div>
-            </div>
-            <p className="max-w-md text-sm text-slate-300">
+        <div className="grid gap-12 lg:grid-cols-4">
+          <div className="space-y-4">
+            <img src="/logo.svg" alt="J.K. Shah Classes" className="h-10" />
+            <p className="max-w-xs text-sm text-slate-600">
               Building the most trusted pathway for CA, CMA, CFA, and ACCA aspirants
-              with immersive content, live mentorship, and AI-enhanced revision
-              sprints.
+              with immersive content and live mentorship.
             </p>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
               {socials.map(({ name, icon: Icon, href }) => (
                 <motion.a
                   key={name}
                   href={href}
-                  whileHover={{ y: -3 }}
-                  className="text-slate-400 transition hover:text-primary-100"
+                  whileHover={{ y: -2 }}
+                  className="text-slate-400 transition hover:text-primary-950"
                   aria-label={name}
                 >
                   <Icon className="h-5 w-5" />
@@ -66,44 +43,42 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-300">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-900">
               Quick Links
             </h3>
-            <div className="grid gap-3 text-sm text-slate-400">
+            <div className="space-y-3">
               {quickLinks.map((link) => (
                 <Link
                   key={link.label}
                   to={link.to}
-                  className="flex items-center gap-2 transition hover:text-primary-100"
+                  className="block text-sm text-slate-600 transition hover:text-primary-950"
                 >
-                  <ArrowUpRight className="h-3.5 w-3.5 text-primary-300" />
                   {link.label}
                 </Link>
               ))}
             </div>
           </div>
 
-          <div className="space-y-6 rounded-3xl border border-white/10 bg-slate-950/60 p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-300">
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-900">
               Contact
             </h3>
-            <div className="space-y-4 text-sm text-slate-300">
+            <div className="space-y-3 text-sm text-slate-600">
               <div className="flex items-start gap-3">
-                <MapPin className="mt-1 h-4 w-4 text-primary-300" />
+                <MapPin className="mt-0.5 h-4 w-4 text-primary-700" />
                 <p>
-                  HQ: 6th Floor, Commerce Square, Andheri West, Mumbai, Maharashtra
-                  400053
+                  6th Floor, Commerce Square, Andheri West, Mumbai, Maharashtra 400053
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <Phone className="mt-1 h-4 w-4 text-primary-300" />
+                <Phone className="mt-0.5 h-4 w-4 text-primary-700" />
                 <div>
-                  <p>Admissions: +91 93214 90901</p>
-                  <p>Support: +91 86578 34512</p>
+                  <p>+91 93214 90901</p>
+                  <p>+91 86578 34512</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="mt-1 h-4 w-4 text-primary-300" />
+                <Mail className="mt-0.5 h-4 w-4 text-primary-700" />
                 <div>
                   <p>admissions@jkshahonline.com</p>
                   <p>support@jkshahonline.com</p>
@@ -111,43 +86,40 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="mt-16 rounded-3xl border border-white/10 bg-gradient-to-r from-primary-500/10 via-primary-500/5 to-transparent px-6 py-8 sm:px-10 lg:flex lg:items-center lg:justify-between">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3rem] text-primary-200">
-              Future of Commerce Learning
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-900">
+              Newsletter
+            </h3>
+            <p className="text-sm text-slate-600">
+              Get updates on new courses and learning resources.
             </p>
-            <p className="mt-2 text-lg font-semibold text-slate-100">
-              Join 180K+ aspirants accelerating their careers with J K Shah Classes.
-            </p>
-          </div>
-          <div className="mt-6 flex flex-col gap-3 text-sm sm:flex-row lg:mt-0">
-            <Link
-              to="/auth?mode=register"
-              className="inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 font-semibold text-white shadow-glow transition hover:bg-primary-400"
-            >
-              Start Learning Today
-            </Link>
-            <Link
-              to="/courses"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3 font-semibold text-slate-200 transition hover:border-primary-400/60 hover:text-primary-100"
-            >
-              Explore Courses
-            </Link>
+            <form className="space-y-2">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-primary-950 focus:outline-none focus:ring-2 focus:ring-primary-950/20"
+              />
+              <button
+                type="submit"
+                className="w-full rounded-lg bg-primary-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-900"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-3 border-t border-white/5 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} J K Shah Classes. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link to="#" className="transition hover:text-primary-100">
+        <div className="mt-12 flex flex-col gap-4 border-t border-slate-200 pt-8 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} J.K. Shah Classes. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link to="#" className="transition hover:text-primary-950">
               Terms
             </Link>
-            <Link to="#" className="transition hover:text-primary-100">
+            <Link to="#" className="transition hover:text-primary-950">
               Privacy
             </Link>
-            <Link to="#" className="transition hover:text-primary-100">
+            <Link to="#" className="transition hover:text-primary-950">
               Refund Policy
             </Link>
           </div>

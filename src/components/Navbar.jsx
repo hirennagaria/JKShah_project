@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sparkles, UserRound, ChevronRight } from 'lucide-react'
+import { Menu, X, User, ChevronRight } from 'lucide-react'
 
 const navigation = [
   { label: 'Home', to: '/' },
   { label: 'Courses', to: '/courses' },
   { label: 'Dashboard', to: '/dashboard' },
-  { label: 'Course Viewer', to: '/course-viewer/ca-foundation-fasttrack' },
 ]
 
 const NavItem = ({ label, to, onClick }) => (
@@ -15,15 +14,17 @@ const NavItem = ({ label, to, onClick }) => (
     to={to}
     end={to === '/'}
     onClick={onClick}
-    className="group relative inline-flex items-center px-4 py-2 text-sm font-semibold text-slate-200 transition-colors hover:text-primary-100"
+    className="group relative inline-flex items-center px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:text-primary-950"
   >
     {({ isActive }) => (
       <>
-        <span className={isActive ? 'text-primary-200' : undefined}>{label}</span>
+        <span className={isActive ? 'text-primary-950 font-semibold' : undefined}>
+          {label}
+        </span>
         {isActive && (
           <motion.span
             layoutId="nav-underline"
-            className="absolute inset-x-3 bottom-1 h-0.5 rounded-full bg-primary-400/90"
+            className="absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-primary-950"
             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
           />
         )}
@@ -38,32 +39,29 @@ const MobileMenu = ({ open, onClose }) => {
   return (
     <AnimatePresence>
       {open && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-40 bg-slate-950/60 backdrop-blur"
-        >
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm lg:hidden"
+          />
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', stiffness: 200, damping: 28 }}
-            className="ml-auto flex h-full w-[82%] max-w-xs flex-col gap-6 bg-slate-900/95 px-6 py-8 shadow-2xl"
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            className="fixed right-0 top-0 z-50 flex h-full w-[85%] max-w-sm flex-col gap-6 bg-white px-6 py-8 shadow-xl lg:hidden"
           >
             <div className="flex items-center justify-between">
-              <Link to="/" onClick={onClose} className="flex items-center gap-2">
-                <span className="rounded-full bg-primary-500/20 p-2 text-primary-200">
-                  <Sparkles className="h-5 w-5" />
-                </span>
-                <p className="text-lg font-semibold text-slate-100">
-                  J K Shah Classes
-                </p>
+              <Link to="/" onClick={onClose} className="flex items-center gap-3">
+                <img src="/logo.svg" alt="J.K. Shah Classes" className="h-10" />
               </Link>
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-full border border-slate-700/70 p-2 text-slate-300 hover:text-white"
+                className="rounded-lg p-2 text-slate-600 hover:bg-slate-100"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -74,14 +72,14 @@ const MobileMenu = ({ open, onClose }) => {
                   key={item.to}
                   to={item.to}
                   onClick={onClose}
-                  className={`flex items-center justify-between rounded-2xl border border-transparent bg-white/5 px-4 py-3 text-sm font-medium text-slate-100 transition-all hover:border-primary-500/50 hover:bg-primary-500/10 ${
+                  className={`flex items-center justify-between rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
                     location.pathname === item.to
-                      ? 'border-primary-500/60 bg-primary-500/10 text-primary-100'
-                      : ''
+                      ? 'bg-primary-50 text-primary-950'
+                      : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
                   <span>{item.label}</span>
-                  <ChevronRight className="h-4 w-4 text-primary-200" />
+                  <ChevronRight className="h-4 w-4" />
                 </Link>
               ))}
             </nav>
@@ -89,20 +87,20 @@ const MobileMenu = ({ open, onClose }) => {
               <Link
                 to="/auth?mode=register"
                 onClick={onClose}
-                className="inline-flex w-full items-center justify-center rounded-2xl bg-primary-500 px-4 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-primary-400"
+                className="inline-flex w-full items-center justify-center rounded-lg bg-primary-950 px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary-900"
               >
-                Start Free Trial
+                Get Started
               </Link>
               <Link
                 to="/auth?mode=login"
                 onClick={onClose}
-                className="inline-flex w-full items-center justify-center rounded-2xl border border-slate-700/70 px-4 py-3 text-sm font-semibold text-slate-200 hover:border-primary-500/50 hover:text-primary-100"
+                className="inline-flex w-full items-center justify-center rounded-lg border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 hover:border-slate-300 hover:bg-slate-50"
               >
                 Log In
               </Link>
             </div>
           </motion.div>
-        </motion.div>
+        </>
       )}
     </AnimatePresence>
   )
@@ -112,52 +110,41 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-30">
-      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between rounded-3xl border border-white/10 bg-slate-900/60 px-6 py-4 shadow-[0_20px_45px_-20px_rgba(74,111,242,0.4)] backdrop-blur-xl">
+    <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/80 backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary-500/20 text-primary-200">
-              <Sparkles className="h-5 w-5" />
-            </span>
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold tracking-wide text-primary-200">
-                J K Shah Classes
-              </span>
-              <span className="text-xs font-medium text-slate-400">
-                Commerce Success Engine
-              </span>
-            </div>
+            <img src="/logo.svg" alt="J.K. Shah Classes" className="h-12" />
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-2 lg:flex">
             {navigation.map((item) => (
               <NavItem key={item.to} {...item} />
             ))}
           </nav>
 
-          <div className="hidden items-center gap-2 lg:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             <Link
               to="/auth?mode=login"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-primary-400/60 hover:text-primary-100"
+              className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-slate-700 transition hover:text-primary-950"
             >
-              <UserRound className="h-4 w-4" />
+              <User className="h-4 w-4" />
               Log In
             </Link>
             <Link
               to="/auth?mode=register"
-              className="inline-flex items-center gap-2 rounded-full bg-primary-500 px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:bg-primary-400"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-900"
             >
-              <Sparkles className="h-4 w-4" />
-              Start Free Trial
+              Get Started
             </Link>
           </div>
 
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="inline-flex items-center justify-center rounded-2xl border border-white/10 p-2 text-slate-200 transition-colors hover:border-primary-500/60 hover:text-primary-100 lg:hidden"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-slate-700 transition hover:bg-slate-100 lg:hidden"
           >
-            <Menu className="h-5 w-5" />
+            <Menu className="h-6 w-6" />
           </button>
         </div>
       </div>
@@ -167,4 +154,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-

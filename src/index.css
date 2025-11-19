@@ -11,17 +11,17 @@
 }
 
 body {
-  @apply bg-slate-950 text-slate-50 antialiased;
+  @apply bg-white text-slate-900 antialiased;
 }
 
 .glass-panel {
-  @apply bg-white/10 backdrop-blur-xl border border-white/10 shadow-glow;
+  @apply bg-white border border-slate-200 shadow-subtle;
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-display font-semibold text-slate-100;
+  @apply text-3xl md:text-4xl font-semibold text-primary-950;
 }
 
 .badge {
-  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide bg-primary-500/10 text-primary-200 border border-primary-400/30;
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium uppercase tracking-wide bg-primary-50 text-primary-700 border border-primary-200;
 }

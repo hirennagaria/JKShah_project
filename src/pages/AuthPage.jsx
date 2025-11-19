@@ -3,7 +3,6 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ArrowLeft,
-  Sparkles,
   ShieldCheck,
   Lock,
   UserRound,
@@ -11,11 +10,12 @@ import {
   Phone,
   GraduationCap,
   ArrowRight,
+  Check,
 } from 'lucide-react'
 
 const tabs = [
-  { id: 'login', label: 'Log in' },
-  { id: 'register', label: 'Start learning' },
+  { id: 'login', label: 'Log In' },
+  { id: 'register', label: 'Sign Up' },
 ]
 
 const AuthPage = () => {
@@ -29,212 +29,184 @@ const AuthPage = () => {
   const isRegister = useMemo(() => activeTab === 'register', [activeTab])
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-slate-950 px-4 py-16">
-      <div className="absolute inset-0 bg-hero-gradient opacity-20 blur-3xl" />
-      <div className="relative mx-auto grid w-full max-w-5xl gap-10 overflow-hidden rounded-[2.75rem] border border-white/10 bg-slate-900/50 shadow-glow lg:grid-cols-[1.1fr_1fr]">
-        <div className="relative hidden flex-col justify-between border-r border-white/10 bg-[radial-gradient(circle_at_top,_rgba(74,111,242,0.35),_rgba(15,23,42,0.95))] px-8 py-12 text-slate-100 lg:flex">
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500/20 text-primary-200">
-                <Sparkles className="h-6 w-6" />
-              </span>
-              <div>
-                <p className="text-lg font-semibold text-primary-100">
-                  J K Shah Classes
-                </p>
-                <p className="text-sm text-slate-300">Your commerce success engine</p>
+    <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-16">
+      <div className="mx-auto w-full max-w-5xl">
+        <div className="grid gap-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg lg:grid-cols-[1fr_1.2fr]">
+          <div className="hidden flex-col justify-between bg-primary-950 p-10 text-white lg:flex">
+            <div className="space-y-6">
+              <img src="/logo.svg" alt="J.K. Shah Classes" className="h-12" />
+              <h2 className="text-3xl font-bold">
+                Start Your Commerce Journey Today
+              </h2>
+              <p className="text-primary-100">
+                Join thousands of students achieving their professional goals with
+                expert-led courses and comprehensive support.
+              </p>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-center gap-3">
+                  <Check className="h-5 w-5 text-primary-200" />
+                  <span>Secure payments with Razorpay</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Check className="h-5 w-5 text-primary-200" />
+                  <span>Expert mentors & live sessions</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Check className="h-5 w-5 text-primary-200" />
+                  <span>Comprehensive course materials</span>
+                </div>
               </div>
             </div>
-            <h2 className="text-3xl font-semibold text-slate-50">
-              Unlock elite pedagogy across CA, CFA, CMA & ACCA pathways.
-            </h2>
-            <p className="text-sm text-slate-300">
-              Razorpay-enabled checkout, multi-device viewing, live mentorship, and AI
-              revision OS – all waiting in your dashboard.
-            </p>
-            <div className="space-y-3 text-sm text-slate-200">
-              <div className="flex items-center gap-3">
-                <ShieldCheck className="h-5 w-5 text-primary-200" />
-                <span>Secure payments, data, and device sync</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <GraduationCap className="h-5 w-5 text-primary-200" />
-                <span>Ranker mentors & adaptive revision plans</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Sparkles className="h-5 w-5 text-primary-200" />
-                <span>Scholarship credits & exclusive labs</span>
-              </div>
+            <div className="rounded-xl border border-white/20 bg-white/10 p-6 text-sm">
+              <p className="mb-2 font-semibold">Sample Credentials</p>
+              <p className="text-primary-100">Email: learner@jkshahonline.com</p>
+              <p className="text-primary-100">Password: Learn@2025</p>
             </div>
           </div>
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-slate-300">
-            <p className="text-xs uppercase tracking-wide text-primary-200">
-              Preview experience
-            </p>
-            <p className="mt-2">
-              The backend integration will auto-route logins, Razorpay checkout, and
-              course unlocks. Start with sample credentials to explore the flow.
-            </p>
-            <div className="mt-4 rounded-2xl border border-white/10 bg-slate-950/60 p-4 text-xs">
-              <p className="font-semibold text-slate-100">Sample Credentials</p>
-              <p className="mt-2 text-slate-300">Email: learner@jkshahonline.com</p>
-              <p className="text-slate-300">Password: Learn@2025</p>
-            </div>
-          </div>
-        </div>
 
-        <div className="flex flex-col gap-8 px-6 py-10 sm:px-10">
-          <button
-            type="button"
-            onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-400 transition hover:text-primary-100"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back
-          </button>
-
-          <div className="flex gap-3 rounded-full border border-white/10 bg-slate-950/40 p-1">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 rounded-full px-5 py-3 text-sm font-semibold transition ${
-                  activeTab === tab.id
-                    ? 'bg-primary-500 text-white shadow-glow'
-                    : 'text-slate-300 hover:text-primary-100'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.25 }}
-              className="space-y-6"
+          <div className="flex flex-col gap-8 px-6 py-10 sm:px-10">
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-primary-950"
             >
-              <div>
-                <h1 className="text-2xl font-semibold text-slate-50">
-                  {isRegister ? 'Create your learning account' : 'Welcome back, achiever'}
-                </h1>
-                <p className="mt-2 text-sm text-slate-300">
-                  {isRegister
-                    ? 'Unlock adaptive cohorts, mentorship credits, and Razorpay-powered checkout once backend integration is live.'
-                    : 'Sign in with sample credentials to preview the upcoming experience.'}
-                </p>
-              </div>
+              <ArrowLeft className="h-4 w-4" />
+              Back
+            </button>
 
-              <form className="space-y-4">
-                {isRegister && (
-                  <div className="grid gap-4 sm:grid-cols-2">
+            <div className="flex gap-2 rounded-lg border border-slate-200 bg-slate-50 p-1">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex-1 rounded-lg px-5 py-2.5 text-sm font-semibold transition ${
+                    activeTab === tab.id
+                      ? 'bg-white text-primary-950 shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25 }}
+                className="space-y-6"
+              >
+                <div>
+                  <h1 className="text-2xl font-bold text-slate-900">
+                    {isRegister ? 'Create Your Account' : 'Welcome Back'}
+                  </h1>
+                  <p className="mt-2 text-sm text-slate-600">
+                    {isRegister
+                      ? 'Sign up to start your learning journey'
+                      : 'Sign in to continue your learning'}
+                  </p>
+                </div>
+
+                <form className="space-y-4">
+                  {isRegister && (
+                    <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        Full name
+                      <label className="mb-2 block text-sm font-medium text-slate-700">
+                        Full Name
                       </label>
-                      <div className="mt-2 flex items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/60 px-4">
-                        <UserRound className="h-4 w-4 text-primary-300" />
+                      <div className="flex items-center gap-2 rounded-lg border border-slate-300 px-4 focus-within:border-primary-950 focus-within:ring-2 focus-within:ring-primary-950/20">
+                        <UserRound className="h-4 w-4 text-slate-400" />
                         <input
                           type="text"
-                          placeholder="Aarav Joshi"
-                          className="w-full bg-transparent py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none"
+                          placeholder="John Doe"
+                          className="w-full bg-transparent py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        Phone number
+                      <label className="mb-2 block text-sm font-medium text-slate-700">
+                        Phone Number
                       </label>
-                      <div className="mt-2 flex items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/60 px-4">
-                        <Phone className="h-4 w-4 text-primary-300" />
+                      <div className="flex items-center gap-2 rounded-lg border border-slate-300 px-4 focus-within:border-primary-950 focus-within:ring-2 focus-within:ring-primary-950/20">
+                        <Phone className="h-4 w-4 text-slate-400" />
                         <input
                           type="tel"
                           placeholder="+91 90000 12345"
-                          className="w-full bg-transparent py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none"
+                          className="w-full bg-transparent py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
                         />
                       </div>
                     </div>
                   </div>
-                )}
+                  )}
 
-                <div>
-                  <label className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                    Email address
-                  </label>
-                  <div className="mt-2 flex items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/60 px-4">
-                    <Mail className="h-4 w-4 text-primary-300" />
-                    <input
-                      type="email"
-                      placeholder="you@jkshahonline.com"
-                      className="w-full bg-transparent py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                    Password
-                  </label>
-                  <div className="mt-2 flex items-center gap-2 rounded-2xl border border-white/10 bg-slate-950/60 px-4">
-                    <Lock className="h-4 w-4 text-primary-300" />
-                    <input
-                      type="password"
-                      placeholder={isRegister ? 'Create a strong password' : 'Enter your password'}
-                      className="w-full bg-transparent py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none"
-                    />
-                  </div>
-                </div>
-
-                {isRegister && (
                   <div>
-                    <label className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                      Qualification goal
+                    <label className="mb-2 block text-sm font-medium text-slate-700">
+                      Email Address
                     </label>
-                    <select className="mt-2 w-full rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-sm text-slate-100 focus:border-primary-500/60 focus:outline-none">
-                      <option>CA Foundation</option>
-                      <option>CA Intermediate</option>
-                      <option>CA Final</option>
-                      <option>CFA Level I</option>
-                      <option>CMA</option>
-                      <option>ACCA</option>
-                    </select>
+                    <div className="flex items-center gap-2 rounded-lg border border-slate-300 px-4 focus-within:border-primary-950 focus-within:ring-2 focus-within:ring-primary-950/20">
+                      <Mail className="h-4 w-4 text-slate-400" />
+                      <input
+                        type="email"
+                        placeholder="you@example.com"
+                        className="w-full bg-transparent py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                      />
+                    </div>
                   </div>
-                )}
 
-                <button
-                  type="button"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-primary-400"
-                >
-                  {isRegister ? 'Create account & explore' : 'Log in with sample credentials'}
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </form>
+                  <div>
+                    <label className="mb-2 block text-sm font-medium text-slate-700">
+                      Password
+                    </label>
+                    <div className="flex items-center gap-2 rounded-lg border border-slate-300 px-4 focus-within:border-primary-950 focus-within:ring-2 focus-within:ring-primary-950/20">
+                      <Lock className="h-4 w-4 text-slate-400" />
+                      <input
+                        type="password"
+                        placeholder={isRegister ? 'Create a password' : 'Enter password'}
+                        className="w-full bg-transparent py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                      />
+                    </div>
+                  </div>
 
-              <div className="space-y-4 rounded-3xl border border-white/10 bg-slate-950/40 p-6 text-sm text-slate-300">
-                <p className="text-xs uppercase tracking-wide text-primary-200">
-                  Coming soon
-                </p>
-                <p>
-                  Razorpay integration will power instant payments for single courses,
-                  bundles, and subscriptions with GST invoices. Credentials & purchases
-                  auto-sync to dashboard and course viewer.
-                </p>
+                  {isRegister && (
+                    <div>
+                      <label className="mb-2 block text-sm font-medium text-slate-700">
+                        Qualification Goal
+                      </label>
+                      <select className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-primary-950 focus:outline-none focus:ring-2 focus:ring-primary-950/20">
+                        <option>CA Foundation</option>
+                        <option>CA Intermediate</option>
+                        <option>CA Final</option>
+                        <option>CFA Level I</option>
+                        <option>CMA</option>
+                        <option>ACCA</option>
+                      </select>
+                    </div>
+                  )}
+
+                  <button
+                    type="button"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-900"
+                  >
+                    {isRegister ? 'Create Account' : 'Log In'}
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </form>
+
                 {!isRegister && (
-                  <p className="text-xs text-slate-400">
+                  <p className="text-center text-sm text-slate-600">
                     Forgot password?{' '}
-                    <Link to="#" className="font-semibold text-primary-200">
-                      Reset via email
+                    <Link to="#" className="font-semibold text-primary-950">
+                      Reset here
                     </Link>
                   </p>
                 )}
-              </div>
-            </motion.div>
-          </AnimatePresence>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>
@@ -242,4 +214,3 @@ const AuthPage = () => {
 }
 
 export default AuthPage
-

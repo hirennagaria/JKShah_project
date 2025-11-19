@@ -1,0 +1,13 @@
+<svg width="280" height="80" viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- J.K. SHAH text -->
+  <text x="0" y="48" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#0d2b4e">
+    J.K. SHAH<tspan font-size="20" baseline-shift="super">®</tspan>
+  </text>
+  <!-- Horizontal line -->
+  <line x1="0" y1="52" x2="180" y2="52" stroke="#0d2b4e" stroke-width="1.5"/>
+  <!-- CLASSES text -->
+  <text x="0" y="70" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#0d2b4e" letter-spacing="4">
+    CLASSES
+  </text>
+</svg>
+
