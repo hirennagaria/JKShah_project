@@ -11,7 +11,7 @@ import {
   ArrowRight,
   BookOpen,
 } from 'lucide-react'
-import { courses, categories, courseBundles } from '../data/platform'
+import { courses, categories, courseBundles, instructors } from '../data/platform'
 
 const levelOptions = ['All levels', 'Beginner', 'Intermediate', 'Advanced']
 
@@ -87,8 +87,10 @@ const CourseCard = ({ course }) => {
 const CoursesPage = () => {
   const [searchParams] = useSearchParams()
   const trackParam = searchParams.get('track')
+  const instructorParam = searchParams.get('instructor')
   const [query, setQuery] = useState('')
   const [selectedTrack, setSelectedTrack] = useState(trackParam ?? 'All')
+  const [selectedInstructor, setSelectedInstructor] = useState(instructorParam ?? 'All')
   const [selectedLevel, setSelectedLevel] = useState(levelOptions[0])
 
   const filteredCourses = useMemo(() => {
@@ -99,12 +101,15 @@ const CoursesPage = () => {
       const matchesTrack =
         selectedTrack === 'All' ||
         course.category.toLowerCase().includes(selectedTrack.replace('-', ' '))
+      const matchesInstructor =
+        selectedInstructor === 'All' ||
+        course.instructorId === selectedInstructor
       const matchesLevel =
         selectedLevel === 'All levels' ||
         course.level.toLowerCase() === selectedLevel.toLowerCase()
-      return matchesQuery && matchesTrack && matchesLevel
+      return matchesQuery && matchesTrack && matchesLevel && matchesInstructor
     })
-  }, [query, selectedTrack, selectedLevel])
+  }, [query, selectedTrack, selectedLevel, selectedInstructor])
 
   return (
     <div className="space-y-12 pb-20 pt-8">
@@ -135,7 +140,7 @@ const CoursesPage = () => {
               <span className="text-xs font-medium text-slate-600">Filter:</span>
               <button
                 type="button"
-                onClick={() => setSelectedTrack('All')}
+                onClick={() => {setSelectedTrack('All'); setSelectedInstructor('All')}}
                 className={clsx(
                   'rounded-lg border px-4 py-2 text-sm font-medium transition',
                   selectedTrack === 'All'
@@ -158,6 +163,21 @@ const CoursesPage = () => {
                   )}
                 >
                   {category.name}
+                </button>
+              ))}
+              {instructors.map((instructor) => (
+                <button
+                  key={instructor.id}
+                  type="button"
+                  onClick={() => setSelectedInstructor(instructor.id)}
+                  className={clsx(
+                    'rounded-lg border px-4 py-2 text-sm font-medium transition',
+                    selectedInstructor === instructors.id
+                      ? 'border-primary-950 bg-primary-950 text-white'
+                      : 'border-slate-300 bg-white text-slate-700 hover:border-primary-950 hover:text-primary-950',
+                  )}
+                >
+                  {instructor.name}
                 </button>
               ))}
             </div>
