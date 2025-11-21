@@ -45,45 +45,26 @@ export const categories = [
 
 export const instructors = [
   {
-    id: 'jitendra-shah',
-    name: 'CA Jitendra K. Shah',
-    title: 'Chairman & Mentor',
-    experience: '32 years of coaching experience',
+    id: 'aagam-dalal',
+    name: 'Prof Aagam Dalal',
     avatar:
-      'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop',
-    bio: 'Nationally renowned faculty for Accounts & Audit with AIR 1 rankers under his mentorship.',
-    highlights: ['Strategic Mentorship', 'National Rankers', 'Case-Study Approach'],
+      '/images/aagam-dalal.jpeg',
+    bio: 'This is Prof. Aagam S. Dalal. I am chartered Accountant by profession. I teach Direct tax and International taxation at CA Inter and CA Final level. I have achieved All India 2nd Rank at CA Final along with 4 Gold medals(including taxation). I have also achieved 33rd All India Rank at CA Inter. I am a practicing chartered Accountant and that gives me edge of delivering practical exposure to students Upto now I have taught in various cities like ahmedabad Mumbai Chennai Bangalore Hyderabad Baroda Surat Jaipur Delhi Raipur Coimbatore Hubali I have taught more than 1,00,000 students face to face and virtually together.',
   },
   {
-    id: 'tanvi-mehta',
-    name: 'CA Tanvi Mehta',
-    title: 'Lead Faculty - Taxation',
-    experience: '12 years of experience',
+    id: 'biplab-mondal',
+    name: 'Prof Biplab Mondal',
     avatar:
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop',
-    bio: 'Ex-Big4 tax strategist with deep expertise in international taxation & GST.',
-    highlights: ['GST Clinics', 'Live Tax Labs', 'Law Integration'],
+      '/images/biplab-mondal.jpeg',
+    bio: 'CS Biplab Mondal is a distinguished professional holding qualifications in Company Secretary (CS), LLB, and a Master’s in Economics. With over 7 years of teaching experience, he brings a rare combination of academic depth and practical insight to the classroom. In addition to his deep understanding of fundraising and capital markets in India, CS Biplab has developed robust expertise in the Dubai market, where he is currently handling matters related to FEMA (Foreign Exchange Management Act), Arbitration, FRCA (Foreign Contribution Regulation Act), and Intellectual Property Rights. His ability to blend academic rigor with on-ground experience makes him a highly effective educator and a valuable resource for students and professionals alike. He continues to inspire learners by bridging the gap between theory and practice, and by offering a well-rounded perspective on domestic and international corporate compliance.',
   },
   {
-    id: 'arjun-desai',
-    name: 'CFA Arjun Desai',
-    title: 'Program Director - CFA & FRM',
-    experience: '15 years of experience',
+    id: 'nitin-nahar',
+    name: 'Prof Nitin Nahar',
     avatar:
-      'https://images.unsplash.com/photo-1544723795-3fb0b53f120e?q=80&w=400&auto=format&fit=crop',
-    bio: 'Former investment banker with expertise in equity research, portfolio analytics, and derivatives.',
-    highlights: ['Quant Masterclasses', 'Bloomberg Labs', 'Mock Trading'],
-  },
-  {
-    id: 'isha-kapoor',
-    name: 'CA Isha Kapoor',
-    title: 'Head of Academics - CMA & ACCA',
-    experience: '11 years of experience',
-    avatar:
-      'https://images.unsplash.com/photo-1544723795-3fb0b53f120d?q=80&w=400&auto=format&fit=crop',
-    bio: 'Designer of our competency-based modules with focus on management accounting.',
-    highlights: ['AI-based Analytics', 'Case Lets', 'Project Mentorship'],
-  },
+      '/images/nitin-nahar.jpeg',
+    bio: 'Prof. Nitin Nahar is a Chartered Accountant and LLB Graduate. He has achieved AIR 6 in his CA Final Exams and Rank 6 in his Graduation from Bangalore University. He has industry experience in handling Indirect Taxes matters across earlier taxes as well as GST. He has worked with listed clients as well as E-Commerce giants. He is actively engaged in face to face classes in JKSC throughout India. He has trained over 22,000 students.',
+  }
 ]
 
 export const testimonials = [
@@ -292,12 +273,12 @@ export const dashboardOverview = {
 
 export const courses = [
   {
-    id: 'ca-foundation-fasttrack',
-    slug: 'ca-foundation-fasttrack',
-    title: 'CA Foundation FastTrack 2025',
+    id: 'ca-final-paper-5',
+    slug: 'ca-final-paper-5',
+    title: 'CA Final, Paper 5 - Indirect Tax Laws - Prof. Nitin Nahar',
     thumbnail:
-      'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=900&auto=format&fit=crop',
-    category: 'CA Foundation',
+      '/images/ca-final-paper-5.png',
+    category: 'CA Final',
     level: 'Beginner',
     rating: 4.9,
     students: 12840,
@@ -306,7 +287,7 @@ export const courses = [
     lessons: 240,
     live: true,
     badge: 'AIR Rankers',
-    instructorId: 'jitendra-shah',
+    instructorId: 'nitin-nahar',
     nextBatch: '18 Nov 2025',
     shortDescription:
       'Build conceptual mastery with national rankers, live doubt clinics, and AI-backed revisions.',
@@ -320,28 +301,17 @@ export const courses = [
     ],
     curriculum: [
       {
-        title: 'Accounting Mastery',
+        title: 'CA Final, Paper 5 - Indirect Tax Laws - Prof. Nitin Nahar',
         items: [
-          'Concept capsules and journal deep dives',
-          'Live problem statements from past AIR papers',
-          'Weekly mastery assessments',
-        ],
-      },
-      {
-        title: 'Business Laws & BCR',
-        items: [
-          'Interactive case-based discussions',
-          'Weekly judgement analysis labs',
-          'Express revision decks & quizzes',
-        ],
-      },
-      {
-        title: 'Quantitative Aptitude',
-        items: [
-          'Visual concept mapping',
-          '400+ exam-style practice drills',
-          'Formula tracker & flashcards',
-        ],
+          'Supply',
+          'Time of Supply',
+          'Place of Supply',
+          'Valuation', 'Composition Scheme', 'Exemption', 'RCM and ECO', 'Input Tax Credit', 'Registration', 'Payment of GST',
+          'Invoice and Other Documents',
+          'Returns', 'Accounts, Records and E-Way Bill', 'Refund', 'Job Work, Assessment and Audit', 'Adjudication', 'Appeals, Review and Revision', 'Search Liability to Pay in Certain Cases',
+          'Offences and Penalties', 'Misc. Provisions and Advance Ruling', 'Customs - Basics', 'Computation of Custom Duty', 'Other Types of Duties', 'Baggage Post Courier', 'Assessment, Exemption, Refund and Misc.',
+          'Warehousing', 'Foreign Trade Policy', 'Ethics of Online Money Gaming', 'Amendments'
+        ]
       },
     ],
     heroVideo: 'https://www.youtube.com/embed/yei7GP9vEP0',
@@ -402,9 +372,9 @@ export const courses = [
     heroVideo: 'https://www.youtube.com/embed/Zugnmp160Jw',
   },
   {
-    id: 'ca-final-elite',
-    slug: 'ca-final-elite',
-    title: 'CA Final Elevate Elite',
+    id: 'ca-final-paper-4',
+    slug: 'ca-final-paper-4',
+    title: 'CA Final, Paper 4 - Direct Tax Laws and International Taxation - Prof. Aagam Dalal',
     thumbnail:
       'https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=900&auto=format&fit=crop',
     category: 'CA Final',
@@ -416,7 +386,7 @@ export const courses = [
     lessons: 410,
     live: true,
     badge: 'Ranker Series',
-    instructorId: 'jitendra-shah',
+    instructorId: 'aagam-dalal',
     nextBatch: '10 Jan 2026',
     shortDescription:
       'Audit mastery, Financial Reporting power sessions, and live answer writing retreats.',
@@ -430,27 +400,13 @@ export const courses = [
     ],
     curriculum: [
       {
-        title: 'Financial Reporting Intensives',
+        title: 'CA Final Paper 4 - Direct Tax Laws and International Taxation - Prof. Aagam Dalal',
         items: [
-          'Integrated case studies across Ind AS',
-          'Consolidation lab series with auto-evaluations',
-          'Answer writing rubric with peer review',
-        ],
-      },
-      {
-        title: 'Strategic Financial Management',
-        items: [
-          'Derivative valuation sprints',
-          'Treasury risk management cases',
-          'Portfolio analytics bootcamp',
-        ],
-      },
-      {
-        title: 'Advanced Auditing & Ethics',
-        items: [
-          'Audit analytics using Power BI',
-          'International case studies and regulations',
-          'Mock board room simulations',
+          'Introduction and Basic Concepts', 'Capital Gain', 'Profit & Gains from Business and Profession', 'Income from Other Source',
+          'HUF', 'Assessment of Firm', 'Taxation of AOP BOI', 'Clubbing', '115 BAC and AMT', 'Assessment of Co - Op Society', 'Concept of Mutual Concern', 'Business Trust',
+          'Tonnage Taxation Scheme', 'Various Topics of Assessment of Various Entities', 'Assessment of Companies', 'Taxation of Trust', 'Set off Carry Forward',
+          'Exempt Income', 'Income Computation Disclosure Standards', 'General Anti Avoidance Rules(GAAR)', 'Taxability of Life Insurance Policy', 'Taxability of Virtual Digital Asset', 'Deductions UC VI - A 80C To 80U', 'Tax Deduction & Collection of Sources', 'Assessment Procedure', 'Appeals', 'Income Tax Authority', 'Advance Tax, Interest and Recovery', 'Liability in Certain Cases', 'Dispute Resolution Committee(DRC)', 'Refunds', 'Miscellaneous Provisions', 'Penalties and Offence', 'Black Money(Undisclosed Foreign Income and Assets) and Imposition of Tax Act, 2015', 'Tax Audit and Ethical Compliances', 'Transfer Pricing Taxation', 'Non - Resident', 'Double Taxation Avoidance Agreement(DTAA)', 'Advance Rulings', 'Application and Interpretation of Treaty', 'Fundamentals of BEPS', 'Overview of Model Tax Convention'
+
         ],
       },
     ],

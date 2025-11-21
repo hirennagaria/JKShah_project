@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { ArrowRight, Clock, Users, Star, Check, Play } from 'lucide-react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/pagination'
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight, Clock, Users, Star, Check, Play } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import {
   categories,
   courses,
@@ -12,18 +12,18 @@ import {
   testimonials,
   stats,
   highlights,
-} from '../data/platform'
-import { Icons } from '../utils/icons'
+} from "../data/platform";
+import { Icons } from "../utils/icons";
 
 const fadeIn = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.6, delay },
-})
+});
 
 const HomePage = () => {
-  const featuredCourses = courses.slice(0, 3)
+  const featuredCourses = courses.slice(0, 3);
 
   return (
     <div className="space-y-20 pb-20">
@@ -43,8 +43,9 @@ const HomePage = () => {
                   Master Commerce with Expert-Led Courses
                 </h1>
                 <p className="max-w-xl text-lg text-slate-600">
-                  Comprehensive courses for CA, CFA, CMA, and ACCA aspirants. Learn from
-                  industry experts and achieve your professional goals.
+                  Comprehensive courses for CA, CFA, CMA, and ACCA aspirants.
+                  Learn from industry experts and achieve your professional
+                  goals.
                 </p>
               </div>
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -66,25 +67,29 @@ const HomePage = () => {
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {stats.map((item, idx) => {
                   const colors = [
-                    'text-accent-orange',
-                    'text-accent-blue',
-                    'text-accent-green',
-                    'text-accent-purple',
-                  ]
+                    "text-accent-orange",
+                    "text-accent-blue",
+                    "text-accent-green",
+                    "text-accent-purple",
+                  ];
                   return (
                     <motion.div
                       key={item.label}
                       className="space-y-1 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
                       {...fadeIn(idx * 0.1)}
                     >
-                      <p className={`text-2xl font-bold ${colors[idx % colors.length]}`}>
+                      <p
+                        className={`text-2xl font-bold ${
+                          colors[idx % colors.length]
+                        }`}
+                      >
                         {item.value}
                       </p>
                       <p className="text-xs font-medium uppercase tracking-wide text-slate-600">
                         {item.label}
                       </p>
                     </motion.div>
-                  )
+                  );
                 })}
               </div>
             </motion.div>
@@ -149,15 +154,15 @@ const HomePage = () => {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {categories.map((category, idx) => {
-              const Icon = Icons[category.icon] ?? Icons.Sparkles
+              const Icon = Icons[category.icon] ?? Icons.Sparkles;
               const iconColors = [
-                'bg-accent-orange/10 text-accent-orange',
-                'bg-accent-blue/10 text-accent-blue',
-                'bg-accent-green/10 text-accent-green',
-                'bg-accent-purple/10 text-accent-purple',
-                'bg-accent-pink/10 text-accent-pink',
-                'bg-accent-yellow/10 text-accent-yellow',
-              ]
+                "bg-accent-orange/10 text-accent-orange",
+                "bg-accent-blue/10 text-accent-blue",
+                "bg-accent-green/10 text-accent-green",
+                "bg-accent-purple/10 text-accent-purple",
+                "bg-accent-pink/10 text-accent-pink",
+                "bg-accent-yellow/10 text-accent-yellow",
+              ];
               return (
                 <motion.div
                   key={category.id}
@@ -165,14 +170,18 @@ const HomePage = () => {
                   {...fadeIn(idx * 0.05)}
                 >
                   <div
-                    className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${iconColors[idx % iconColors.length]}`}
+                    className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${
+                      iconColors[idx % iconColors.length]
+                    }`}
                   >
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-xl font-semibold text-slate-900">
                     {category.name}
                   </h3>
-                  <p className="mt-2 text-sm text-slate-600">{category.summary}</p>
+                  <p className="mt-2 text-sm text-slate-600">
+                    {category.summary}
+                  </p>
                   <Link
                     to={`/courses?track=${category.id}`}
                     className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary-950 transition hover:text-primary-800"
@@ -181,7 +190,7 @@ const HomePage = () => {
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </motion.div>
-              )
+              );
             })}
           </div>
         </div>
@@ -196,13 +205,13 @@ const HomePage = () => {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {highlights.map((highlight, idx) => {
-              const Icon = Icons[highlight.icon] ?? Icons.Sparkles
+              const Icon = Icons[highlight.icon] ?? Icons.Sparkles;
               const iconColors = [
-                'bg-accent-orange/10 text-accent-orange',
-                'bg-accent-blue/10 text-accent-blue',
-                'bg-accent-green/10 text-accent-green',
-                'bg-accent-purple/10 text-accent-purple',
-              ]
+                "bg-accent-orange/10 text-accent-orange",
+                "bg-accent-blue/10 text-accent-blue",
+                "bg-accent-green/10 text-accent-green",
+                "bg-accent-purple/10 text-accent-purple",
+              ];
               return (
                 <motion.div
                   key={highlight.title}
@@ -210,16 +219,20 @@ const HomePage = () => {
                   {...fadeIn(idx * 0.05)}
                 >
                   <div
-                    className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${iconColors[idx % iconColors.length]}`}
+                    className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${
+                      iconColors[idx % iconColors.length]
+                    }`}
                   >
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-semibold text-slate-900">
                     {highlight.title}
                   </h3>
-                  <p className="mt-2 text-sm text-slate-600">{highlight.description}</p>
+                  <p className="mt-2 text-sm text-slate-600">
+                    {highlight.description}
+                  </p>
                 </motion.div>
-              )
+              );
             })}
           </div>
         </div>
@@ -242,32 +255,20 @@ const HomePage = () => {
                 className="rounded-xl border border-slate-200 bg-white p-6 transition hover:shadow-md"
                 {...fadeIn(idx * 0.1)}
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center gap-4">
                   <img
                     src={mentor.avatar}
                     alt={mentor.name}
-                    className="h-16 w-16 rounded-lg object-cover"
+                    className="h-90 w-full rounded-lg object-cover"
                     loading="lazy"
                   />
+                </div>
+                <div className="flex items-start gap-4 mt-3">
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-slate-900">
                       {mentor.name}
                     </h3>
-                    <p className="text-sm font-medium text-primary-700">
-                      {mentor.title}
-                    </p>
-                    <p className="mt-2 text-xs text-slate-600">{mentor.experience}</p>
                     <p className="mt-3 text-sm text-slate-600">{mentor.bio}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {mentor.highlights.map((item) => (
-                        <span
-                          key={item}
-                          className="rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-700"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -309,7 +310,9 @@ const HomePage = () => {
                         <p className="font-semibold text-slate-900">
                           {testimonial.name}
                         </p>
-                        <p className="text-xs text-primary-700">{testimonial.title}</p>
+                        <p className="text-xs text-primary-700">
+                          {testimonial.title}
+                        </p>
                       </div>
                     </div>
                     <p className="mb-4 text-sm text-slate-600">
@@ -362,7 +365,7 @@ const HomePage = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

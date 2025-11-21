@@ -285,16 +285,6 @@ const CourseDetailPage = () => {
                     </div>
                   </div>
                   <p className="mt-4 text-sm text-slate-600">{instructor.bio}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {instructor.highlights.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-700"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               )}
             </div>
